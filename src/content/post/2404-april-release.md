@@ -9,12 +9,12 @@ tags:
 Greetings, CachyOS enthusiasts!
 
 This is our fourth release of 2024 and is mainly to provide a xz libary, which does not contain the current known CVE with it.
-We are also adding a commit in "libarchive" of the malicious xz actor to help mitigate by ensuring path names are only outputted via safe_fprintf to avoid escape sequences in paths hitting the terminal.
+We have added the commit "Mitigate past commit of malicious xz actor by ensuring path names are only outputted via safe_fprintf to avoid escape sequences in paths hitting the terminal." in "libarchive"
 
 We have also added a bunch of new features, so it's quite an opportune time to do a release.
 Unfortunately, due to issues with calamares and wayland, when changing the keyboard layout in calamares we needed to switch back to x11 only for the ISO.
 
-We provide now a new refind partioning layout (seperate /boot and /boot/efi), which makes it easier to dual boot with windows and other linux distributions.
+We now provide a new refind partioning layout (seperate /boot and /boot/efi), which makes it easier to multi boot with windows and other linux distributions.
 Plymouth has been added and it is now used by default for all currently available bootloaders, Plymouth provides a themed boot animation instead of scrolling text.
 The boot animation will show a spinning circle, the CachyOS Logo and your UEFI Motherboard Vendor splash art.
 
