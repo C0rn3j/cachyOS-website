@@ -45,8 +45,6 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const { Content, remarkPluginFrontmatter } = await post.render();
 
   const {
-    publishDate: rawPublishDate = new Date(),
-    updateDate: rawUpdateDate,
     title,
     excerpt,
     image,
@@ -57,8 +55,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     metadata = {},
   } = data;
 
-  const publishDate = getCreatedDate(post);
-  const updateDate = getLastUpdated(post);
+  const publishDate = getCreatedDate(post) as Date;
+  const updateDate = getLastUpdated(post) as Date;
   const slug = cleanSlug(rawSlug); // cleanSlug(rawSlug.split('/').pop());
   const category = rawCategory ? cleanSlug(rawCategory) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
@@ -92,7 +90,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
 const load = async function (): Promise<Array<Post>> {
   const posts = await getCollection('post');
-  const normalizedPosts = posts.map(async (post: Post) => await getNormalizedPost(post));
+  const normalizedPosts = posts.map(async (post: CollectionEntry<'post'>) => await getNormalizedPost(post));
 
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())

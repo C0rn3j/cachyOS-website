@@ -1,5 +1,5 @@
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
-import type { ImageMetadata } from 'astro/types';
+import type { ImageMetadata } from 'astro';
 
 export interface MetaSEO {
   title?: string;
@@ -23,6 +23,11 @@ export interface Post {
 
   /**  */
   permalink: string;
+
+  /**  */
+  publishDate: Date;
+  /**  */
+  updateDate?: Date;
 
   /**  */
   title: string;
