@@ -36,13 +36,13 @@ mkinitcio also got a bugfix: solved issues with the 6.7 kernel, which resulted i
 
 You can download the latest CachyOS ISO from our mirrors on SourceForge:
 
-* [https://mirror.cachyos.org/ISO/](https://mirror.cachyos.org/ISO/)
-* [https://sourceforge.net/projects/cachyos-arch/files/](https://sourceforge.net/projects/cachyos-arch/files/)
+- [https://mirror.cachyos.org/ISO/](https://mirror.cachyos.org/ISO/)
+- [https://sourceforge.net/projects/cachyos-arch/files/](https://sourceforge.net/projects/cachyos-arch/files/)
 
 If you would like to support our development efforts, please consider making a donation to help cover our monthly server costs:
 
-* [https://paypal.me/pttrr](https://paypal.me/pttrr)
-* [https://www.patreon.com/CachyOS](https://www.patreon.com/CachyOS)
+- [https://paypal.me/pttrr](https://paypal.me/pttrr)
+- [https://www.patreon.com/CachyOS](https://www.patreon.com/CachyOS)
 
 Thank you for using CachyOS!
 

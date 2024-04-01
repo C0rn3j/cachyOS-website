@@ -18,10 +18,10 @@ We now provide a new refind partioning layout (seperate /boot and /boot/efi), wh
 Plymouth has been added and it is now used by default for all currently available bootloaders, Plymouth provides a themed boot animation instead of scrolling text.
 The boot animation will show a spinning circle, the CachyOS Logo and your UEFI Motherboard Vendor splash art.
 
-
 Here you can find more detailed changes for this release:
 
 **Features:**
+
 - Plymouth: Use plymouth to provide a themed boot animation
 - ISO: Switch back to X11 due to issues when setting the keyboard layout in calamares
 - rEFInd: New partitioning layout (seperate /boot and /boot/efi)
@@ -33,6 +33,7 @@ Here you can find more detailed changes for this release:
 - Package Updates: xz 5.6.1-3, linux-cachyos 6.8.2, pacman 6.1.0-5, mesa 24.0.4, Plasma 6.0.3, nvidia 550.67 and cachyos-settings 39-2
 
 **Bug-Fixes:**
+
 - Autologin: Fixed the autologin option when used together with sddm
 - xz: Provide a patched xz package
 - libarchive: Mitigate commit from malicious xz actor
@@ -43,16 +44,16 @@ Here you can find more detailed changes for this release:
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* https://cdn.cachyos.org/ISO/kde/240401/cachyos-kde-linux-240401.iso
-* https://mirror.cachyos.org/ISO/
-* https://sourceforge.net/projects/cachyos-arch/files
+- https://cdn.cachyos.org/ISO/kde/240401/cachyos-kde-linux-240401.iso
+- https://mirror.cachyos.org/ISO/
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

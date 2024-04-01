@@ -59,4 +59,3 @@ const postCollection = defineCollection({
 export const collections = {
   post: postCollection,
 };
-

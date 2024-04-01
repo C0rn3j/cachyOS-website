@@ -23,6 +23,7 @@ Arch recently made some changes to mkinitcpio and enabled early microcode loadin
 Refind has some more filesystems enabled - f2fs and zfs are now available if the refind bootloader is selected.
 
 **Features:**
+
 - ISO: Plasma 6 is now shipped in the ISO and uses Wayland as default, GNOME ISO got dropped to avoid confusion about netinstall
 - Calamares: Rebased for QT6
 - refind: Add f2fs and zfs as option including luks2 encryption
@@ -33,23 +34,23 @@ Refind has some more filesystems enabled - f2fs and zfs are now available if the
 - Package Updates: linux-cachyos 6.7.9, mesa 24.0.2, zfs-utils 2.2.3
 
 **Bug-Fixes:**
+
 - pacstrap: Do not install config packages to provide the user a more clean selection of the installation
 - shellprocess_pacman: Also copy the ranked cachyos-v4-mirrorlists to the target
-
 
 **Download:**
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* [https://mirror.cachyos.org/ISO/](https://mirror.cachyos.org/ISO/)
-* [https://sourceforge.net/projects/cachyos-arch/files/](https://sourceforge.net/projects/cachyos-arch/files/)
+- [https://mirror.cachyos.org/ISO/](https://mirror.cachyos.org/ISO/)
+- [https://sourceforge.net/projects/cachyos-arch/files/](https://sourceforge.net/projects/cachyos-arch/files/)
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: [https://paypal.me/pttrr](https://paypal.me/pttrr)
-* Patreon: [https://www.patreon.com/CachyOS](https://www.patreon.com/CachyOS)
+- PayPal: [https://paypal.me/pttrr](https://paypal.me/pttrr)
+- Patreon: [https://www.patreon.com/CachyOS](https://www.patreon.com/CachyOS)
 
 Thank you for your continued support!
 

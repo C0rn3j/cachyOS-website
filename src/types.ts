@@ -88,4 +88,3 @@ export interface MetaDataTwitter {
   site?: string;
   cardType?: string;
 }
-

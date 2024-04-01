@@ -29,6 +29,7 @@ x86-64-v2 (supported, searched)
 ```
 
 Install the CachyOS v4 mirrorlist:
+
 ```bash
 sudo pacman -S cachyos-v4-mirrorlist
 ```

@@ -23,44 +23,53 @@ class GitNotFoundError extends Error {}
  * unexpected text.
  */
 export function getFileCommitDate(
-    file: string,
-    age: 'oldest' | 'newest' = 'oldest'
+  file: string,
+  age: 'oldest' | 'newest' = 'oldest'
 ): {
-    date: Date;
-    timestamp: number;
+  date: Date;
+  timestamp: number;
 } {
-    let git_path = '';
-    {
-        const { stdout } = spawnSync('which', ['git'], {
-            encoding: 'utf-8',
-        });
-        if (!stdout) {
-            throw new GitNotFoundError(
-                `Failed to retrieve git history for "${file}" because git is not installed.`
-            );
-        }
-        git_path = stdout.replace(/\n$/, '');
-    }
-
-    const result = spawnSync(git_path, ['log', '--format=%ct', '--max-count=1', ...(age === 'oldest' ? ['--follow', '--diff-filter=A'] : []), '--', basename(file)], {
-        cwd: dirname(file),
-        encoding: 'utf-8',
+  let git_path = '';
+  {
+    const { stdout } = spawnSync('which', ['git'], {
+      encoding: 'utf-8',
     });
-
-    if (result.error) {
-        throw new Error(`Failed to retrieve the git history for file "${file}": ${result.error}`);
+    if (!stdout) {
+      throw new GitNotFoundError(`Failed to retrieve git history for "${file}" because git is not installed.`);
     }
+    git_path = stdout.replace(/\n$/, '');
+  }
 
-    const output = result.stdout.trim();
-    const regex = /^(?<timestamp>\d+)$/;
-    const match = output.match(regex);
-
-    if (!match?.groups?.timestamp) {
-        throw new Error(`Failed to validate the timestamp for file "${file}"`);
+  const result = spawnSync(
+    git_path,
+    [
+      'log',
+      '--format=%ct',
+      '--max-count=1',
+      ...(age === 'oldest' ? ['--follow', '--diff-filter=A'] : []),
+      '--',
+      basename(file),
+    ],
+    {
+      cwd: dirname(file),
+      encoding: 'utf-8',
     }
+  );
 
-    const timestamp = Number(match.groups.timestamp);
-    const date = new Date(timestamp * 1000);
+  if (result.error) {
+    throw new Error(`Failed to retrieve the git history for file "${file}": ${result.error}`);
+  }
 
-    return { date, timestamp };
+  const output = result.stdout.trim();
+  const regex = /^(?<timestamp>\d+)$/;
+  const match = output.match(regex);
+
+  if (!match?.groups?.timestamp) {
+    throw new Error(`Failed to validate the timestamp for file "${file}"`);
+  }
+
+  const timestamp = Number(match.groups.timestamp);
+  const date = new Date(timestamp * 1000);
+
+  return { date, timestamp };
 }

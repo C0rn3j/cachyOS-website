@@ -4,14 +4,14 @@ import {
   getImagesOptimized,
   astroAsseetsOptimizer,
   type ImageProps,
-  type AttributesProps
+  type AttributesProps,
 } from '~/utils/images-optimization';
 
 type Props = ImageProps;
 type ImageType = {
   src: string;
   attributes: AttributesProps;
-}
+};
 
 const props = Astro.props;
 

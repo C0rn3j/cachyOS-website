@@ -7,7 +7,6 @@ tags:
   - repository
 ---
 
-
 We wish you all a happy new year and hope you got well into 2024.
 2023 was a great year for CachyOS, marked by significant improvements, changes, and fixes across the board.
 With the support of the community, we've made significant improvements in enhancing the kernel, installer, and repository.
@@ -116,4 +115,3 @@ Our commitment to excellence continues in 2024. We're excited to implement these
 We thank you all for your support!
 
 **The CachyOS Team**
-

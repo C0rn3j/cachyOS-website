@@ -20,7 +20,6 @@ export const cleanSlug = (text = '') =>
     .map((slug) => slugify(slug))
     .join('/');
 
-
 export const BLOG_BASE = cleanSlug('blog');
 export const CATEGORY_BASE = cleanSlug('category');
 export const TAG_BASE = cleanSlug('tag') || 'tag';

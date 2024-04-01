@@ -209,7 +209,9 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
 
   return Array.from(tags).flatMap((tag: string) =>
     paginate(
-      posts.filter((post: Post) => Array.isArray(post.tags) && post.tags.find((elem: string) => elem.toLowerCase() === tag)),
+      posts.filter(
+        (post: Post) => Array.isArray(post.tags) && post.tags.find((elem: string) => elem.toLowerCase() === tag)
+      ),
       {
         params: { tag: tag, blog: TAG_BASE || undefined },
         pageSize: blogPostsPerPage,
@@ -218,4 +220,3 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
     )
   );
 };
-
