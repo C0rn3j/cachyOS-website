@@ -1,6 +1,5 @@
 import type { Post } from '../types';
 import { getFileCommitDate } from './git';
-import { getProjectRootDir } from './directories';
 
 export const getLastUpdated = ( entry: Post): Date | undefined => {
     const currentFilePath = `src/content/post/` + entry.id;
