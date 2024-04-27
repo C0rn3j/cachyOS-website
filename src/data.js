@@ -30,7 +30,7 @@ export const footerData = {
       title: 'Support',
       links: [
         { text: 'Docs', href: 'https://wiki.cachyos.org/' },
-        { text: 'Community Forum', href: 'https://forum.cachyos.org/' },
+        { text: 'Community Forum', href: 'https://discuss.cachyos.org/' },
       ],
     },
     {
