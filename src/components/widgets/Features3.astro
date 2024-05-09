@@ -1,13 +1,24 @@
 ---
 import { Icon } from 'astro-icon/components';
+import OtherSupportOptions from './OtherSupportOptions';
+import SupportModal from './SupportModal';
 
 const donationbtns = [
-  { label: 'Paypal', icon: 'tabler:brand-paypal', href: 'https://paypal.me/pttrr' },
-  { label: 'Patreon', icon: 'tabler:brand-patreon', href: 'https://www.patreon.com/CachyOS' },
+  {
+    label: 'Paypal',
+    icon: 'tabler:brand-paypal',
+    href: 'https://paypal.me/pttrr',
+  },
+  {
+    label: 'Patreon',
+    icon: 'tabler:brand-patreon',
+    href: 'https://www.patreon.com/CachyOS',
+  },
 ];
 ---
 
 <section>
+  <SupportModal client:load />
   <div class="max-w-6xl mx-auto px-4 sm:px-6 overflow-hidden">
     <div class="py-12 md:py-20">
       <div class="py-4 sm:py-6 lg:py-8">
@@ -39,6 +50,9 @@ const donationbtns = [
                     </a>
                   ))
                 }
+                <OtherSupportOptions client:load>
+                  <Icon name="tabler:arrow-up-right" class="w-5 h-5 mr-1 -ml-1.5" /> Other Options
+                </OtherSupportOptions>
               </div>
             </div>
           </div>

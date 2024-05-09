@@ -1,10 +1,12 @@
 import { Menu, Transition } from '@headlessui/react';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 interface Props {
-  title: string;
-  direct_url: string;
-  srcforge_url: string;
+  data: {
+    title: string;
+    direct_url: string;
+    srcforge_url?: string;
+  };
 }
 
 const DOWNLOADS_API_ENDPOINT = 'https://iso-stats.cachyos.org/api/download';
