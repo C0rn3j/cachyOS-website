@@ -88,3 +88,9 @@ export interface MetaDataTwitter {
   site?: string;
   cardType?: string;
 }
+
+export interface SupportOption {
+  label: string;
+  text: string;
+  mode: 'text' | 'link';
+}

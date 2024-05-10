@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import OtherSupportOptions from './OtherSupportOptions';
+import SupportOptions from './SupportOptions';
 import SupportModal from './SupportModal';
 
 const donationbtns = [
@@ -38,21 +38,9 @@ const donationbtns = [
               </p>
 
               <div class="flex w-full sm:w-auto space-x-4">
-                {
-                  donationbtns.map(({ label, href, icon }) => (
-                    <a
-                      class="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-600 dark:highlight-white/20 dark:hover:bg-sky-700"
-                      href={href}
-                      target="_blank"
-                      rel="noopener"
-                    >
-                      <Icon name={icon} class="w-5 h-5 mr-1 -ml-1.5" /> {label}
-                    </a>
-                  ))
-                }
-                <OtherSupportOptions client:load>
-                  <Icon name="tabler:arrow-up-right" class="w-5 h-5 mr-1 -ml-1.5" /> Other Options
-                </OtherSupportOptions>
+                <SupportOptions client:load>
+                  <Icon name="tabler:arrow-up-right" class="w-5 h-5 mr-1 -ml-1.5" /> Help us
+                </SupportOptions>
               </div>
             </div>
           </div>

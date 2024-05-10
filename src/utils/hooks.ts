@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
-export function useCopyToClipboard({ timeout = 2000 }: { timeout?: number }) {
+interface clipRetType {
+  isCopied: boolean;
+  copyToClipboard: (value: string) => void;
+};
+
+export const useCopyToClipboard = ({ timeout = 2000 }: { timeout?: number }) : clipRetType => {
   const [isCopied, setIsCopied] = useState(false);
-  const copyToClipboard = (value: string) => {
+  const copyToClipboard = (value: string) : void => {
     if (typeof window === 'undefined' || !navigator.clipboard?.writeText) {
       return;
     }
@@ -17,5 +22,5 @@ export function useCopyToClipboard({ timeout = 2000 }: { timeout?: number }) {
     });
   };
 
-  return { isCopied, copyToClipboard };
-}
+  return { isCopied, copyToClipboard } as clipRetType;
+};

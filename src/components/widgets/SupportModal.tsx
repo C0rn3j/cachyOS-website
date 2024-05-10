@@ -1,16 +1,39 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { useStore } from '@nanostores/react';
-import { Fragment } from 'react/jsx-runtime';
+import { Fragment } from 'react';
 import { isSupportModalOpen } from '~/atoms/supportModalStore';
 import { useCopyToClipboard } from '~/utils/hooks';
+import type { SupportOption } from '~/types';
 
-interface SupportOptions {
-  label: string;
-  text: string;
-  mode: 'text' | 'link';
-}
+const supportOptions: SupportOption[] = [
+  {
+    label: 'Bitcoin',
+    text: 'bc1qmwglfchlc335du6pcu6w64cexu7cck0mzhyw42',
+    mode: 'text',
+  },
+  {
+    label: 'Ethereum',
+    text: '0xc2dc77327F78A7B85Db3941Eb49e74F41E961649',
+    mode: 'text',
+  },
+  {
+    label: 'Litecoin',
+    text: 'LgGTwcEBcXqMgNT6XyyNWABMb7dZVtVg9w',
+    mode: 'text',
+  },
+  {
+    label: 'Paypal',
+    text: 'https://paypal.me/pttrr',
+    mode: 'link',
+  },
+  {
+    label: 'Patreon',
+    text: 'https://www.patreon.com/CachyOS',
+    mode: 'link',
+  },
+];
 
-function SupportRow({ label, text, mode }: Readonly<SupportOptions>) {
+const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard({ timeout: 2000 });
   return (
     <div key={label} className="flex bg-slate-800 p-2 text-wrap overflow-scroll w-full h-full">
@@ -88,37 +111,9 @@ function SupportRow({ label, text, mode }: Readonly<SupportOptions>) {
       </div>
     </div>
   );
-}
+};
 
-const supportOptions: SupportOptions[] = [
-  {
-    label: 'Bitcoin',
-    text: 'bc1qmwglfchlc335du6pcu6w64cexu7cck0mzhyw42',
-    mode: 'text',
-  },
-  {
-    label: 'Ethereum',
-    text: '0xc2dc77327F78A7B85Db3941Eb49e74F41E961649',
-    mode: 'text',
-  },
-  {
-    label: 'Litecoin',
-    text: 'LgGTwcEBcXqMgNT6XyyNWABMb7dZVtVg9w',
-    mode: 'text',
-  },
-  {
-    label: 'Paypal',
-    text: 'https://paypal.me/pttrr',
-    mode: 'link',
-  },
-  {
-    label: 'Patreon',
-    text: 'https://www.patreon.com/CachyOS',
-    mode: 'link',
-  },
-];
-
-export default function SupportModal() {
+const SupportModal = () => {
   const $isSupportModalOpen = useStore(isSupportModalOpen);
   const closeModal = () => isSupportModalOpen.set(false);
   return (
@@ -169,7 +164,7 @@ export default function SupportModal() {
                   </button>
                 </div>
                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-white text-center">
-                  Other Support Options
+                  Support Options
                 </Dialog.Title>
                 <div className="mt-2 space-y-2">
                   {supportOptions.map((x) => (
@@ -183,4 +178,6 @@ export default function SupportModal() {
       </Dialog>
     </Transition>
   );
-}
+};
+
+export default SupportModal;
