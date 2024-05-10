@@ -26,7 +26,7 @@ fn main() {
     let body = body.trim_end();
 
     let mut conn = pool.get().unwrap();
-    let update_msg = actions::insert_new_update_msg(&mut conn, &body).unwrap();
+    let update_msg = actions::insert_new_update_msg(&mut conn, body).unwrap();
 
     println!("Saved with id {}", update_msg.id);
 }

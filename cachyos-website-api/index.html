@@ -93,9 +93,7 @@
       };
 
       const toggleChartColors = (theme, chart) => {
-        let colors = {};
-        if (theme === 'dark') {
-          colors = {
+        const colors = (theme === 'dark') ? {
             orange: gruvboxColors.orange,
             yellow: gruvboxColors.yellow,
             green: gruvboxColors.green,
@@ -106,9 +104,7 @@
             light1: gruvboxColors.light1,
             light2: gruvboxColors.light2,
             white: gruvboxColors.white,
-          };
-        } else {
-          colors = {
+          } : {
             orange: '#ff7f0e',
             yellow: '#ffdc87',
             green: '#1f77b4',
@@ -119,8 +115,7 @@
             light1: '#f7f7f7',
             light2: '#eeeeee',
             white: '#ffffff',
-          };
-        }
+        };
 
         const body = document.getElementsByTagName('body')[0];
         const themeToggle = document.getElementById('theme-toggle');
@@ -159,7 +154,7 @@
         const gnomeData = data.filter((d) => d.name === 'GNOME');
 
         // Get the current time
-        let currentTime = Date.now();
+        const currentTime = Date.now();
 
         // Calculate the start time based on the selected time range
         let startTime;
@@ -185,22 +180,22 @@
             return;
         }
 
-        let filteredData = data.filter((item) => {
-          let itemTime = new Date(item.timestamp).getTime();
+        const filteredData = data.filter((item) => {
+          const itemTime = new Date(item.timestamp).getTime();
           return itemTime >= startTime && itemTime <= currentTime;
         });
-        let filteredDataKde = kdeData.filter((item) => {
-          let itemTime = new Date(item.timestamp).getTime();
+        const filteredDataKde = kdeData.filter((item) => {
+          const itemTime = new Date(item.timestamp).getTime();
           return itemTime >= startTime && itemTime <= currentTime;
         });
-        let filteredDataGnome = gnomeData.filter((item) => {
-          let itemTime = new Date(item.timestamp).getTime();
+        const filteredDataGnome = gnomeData.filter((item) => {
+          const itemTime = new Date(item.timestamp).getTime();
           return itemTime >= startTime && itemTime <= currentTime;
         });
-        let preparedCountsKde = getPreparedCounts(filteredDataKde);
-        let preparedCountsGnome = getPreparedCounts(filteredDataGnome);
+        const preparedCountsKde = getPreparedCounts(filteredDataKde);
+        const preparedCountsGnome = getPreparedCounts(filteredDataGnome);
 
-        let labels = getPreparedCounts(filteredData).labels;
+        const labels = getPreparedCounts(filteredData).labels;
         const sum1 = preparedCountsKde.values.reduce((partial_sum, x) => partial_sum + x, 0);
         const sum2 = preparedCountsGnome.values.reduce((partial_sum, x) => partial_sum + x, 0);
         overallDownloads.innerHTML = sum1 + sum2;
@@ -219,8 +214,8 @@
           const kdeData = data.filter((d) => d.name === 'KDE PLASMA');
           const gnomeData = data.filter((d) => d.name === 'GNOME');
 
-          let preparedCountsKde = getPreparedCounts(kdeData);
-          let preparedCountsGnome = getPreparedCounts(gnomeData);
+          const preparedCountsKde = getPreparedCounts(kdeData);
+          const preparedCountsGnome = getPreparedCounts(gnomeData);
 
           const chartOptions = {
             legend: {
@@ -265,7 +260,7 @@
           const overallDownloads = document.getElementById('overall-downloads');
           overallDownloads.innerHTML = sum1 + sum2;
 
-          let labels = getPreparedCounts(data).labels;
+          const labels = getPreparedCounts(data).labels;
 
           // create chart
           const ctx = document.getElementById('myChart');
@@ -348,11 +343,11 @@
           });
 
           // Get the time period dropdown menu
-          let timePeriod = document.getElementById('time-period');
+          const timePeriod = document.getElementById('time-period');
           // Add an event listener to the dropdown menu
           timePeriod.addEventListener('change', () => {
             // Get the selected time period
-            let selectedPeriod = timePeriod.value;
+            const selectedPeriod = timePeriod.value;
 
             // Update the chart data based on the selected time period
             updateChartData(selectedPeriod, data, overallDownloads, chart);
