@@ -34,7 +34,7 @@ const supportOptions: SupportOption[] = [
 const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard({ timeout: 2000 });
   return (
-    <div key={label} className="flex bg-slate-800 p-2 text-wrap w-full h-full">
+    <div key={label} className="flex bg-gray-100 dark:bg-slate-800  p-2 text-wrap w-full h-full">
       <button
         className="flex pr-1 items-center data-[mode=link]:hidden"
         onClick={() => copyToClipboard(text)}
@@ -95,11 +95,11 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
           />
         </svg>
       </a>
-      <div className="bg-slate-800 p-2 text-wrap overflow-x-scroll w-full no-scrollbar">
+      <div className="p-2 text-wrap overflow-x-scroll w-full no-scrollbar">
         {label}:{' '}
         <span className="data-[mode=link]:decoration-dotted data-[mode=link]:underline" data-mode={mode}>
           {mode === 'link' ? (
-            <a href={text} target="_blank" rel="noopener" className="text-white font-bold decoration-slate-400">
+            <a href={text} target="_blank" rel="noopener" className="dark:text-white font-bold decoration-slate-400">
               {text}
             </a>
           ) : (
@@ -139,7 +139,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-dark p-4 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-white dark:bg-dark p-4 text-left align-middle shadow-xl transition-all">
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
@@ -161,7 +161,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                   </button>
                 </div>
                 {/* @ts-expect-error broken types due to preact/compat and @headlessui/react targets only react */}
-                <DialogTitle as="h3" className="text-lg font-medium leading-6 text-white text-center">
+                <DialogTitle as="h3" className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center">
                   Support Options
                 </DialogTitle>
                 <div className="mt-2 space-y-2">
