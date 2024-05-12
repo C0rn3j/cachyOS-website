@@ -1,9 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { useStore } from '@nanostores/react';
 import { Fragment } from 'react';
-import { isSupportModalOpen } from '~/atoms/supportModalStore';
-import { useCopyToClipboard } from '~/utils/hooks';
 import type { SupportOption } from '~/types';
+import { useCopyToClipboard } from '~/utils/hooks';
 
 const supportOptions: SupportOption[] = [
   {
@@ -36,7 +34,7 @@ const supportOptions: SupportOption[] = [
 const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard({ timeout: 2000 });
   return (
-    <div key={label} className="flex bg-slate-800 p-2 text-wrap overflow-scroll w-full h-full">
+    <div key={label} className="flex bg-slate-800 p-2 text-wrap w-full h-full">
       <button
         className="flex pr-1 items-center data-[mode=link]:hidden"
         onClick={() => copyToClipboard(text)}
@@ -97,11 +95,11 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
           />
         </svg>
       </a>
-      <div className="bg-slate-800 p-2 text-wrap overflow-scroll w-full">
+      <div className="bg-slate-800 p-2 text-wrap overflow-x-scroll w-full no-scrollbar">
         {label}:{' '}
         <span className="data-[mode=link]:decoration-dotted data-[mode=link]:underline" data-mode={mode}>
           {mode === 'link' ? (
-            <a href={text} target="_blank" rel="noopener">
+            <a href={text} target="_blank" rel="noopener" className="text-white font-bold decoration-slate-400">
               {text}
             </a>
           ) : (
@@ -113,12 +111,10 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
   );
 };
 
-const SupportModal = () => {
-  const $isSupportModalOpen = useStore(isSupportModalOpen);
-  const closeModal = () => isSupportModalOpen.set(false);
+const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
   return (
-    <Transition appear show={$isSupportModalOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={closeModal}>
+    <Transition appear show={isOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -147,7 +143,7 @@ const SupportModal = () => {
                   <button
                     aria-label="Close"
                     className="rounded-tremor-small p-2 text-tremor-content-subtle hover:bg-tremor-background-subtle hover:text-tremor-content dark:text-dark-tremor-content-subtle hover:dark:bg-dark-tremor-background-subtle hover:dark:text-tremor-content"
-                    onClick={() => closeModal()}
+                    onClick={() => onClose()}
                     type="button"
                     autoFocus={false}
                   >
