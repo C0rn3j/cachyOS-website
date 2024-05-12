@@ -1,5 +1,5 @@
 ---
-title: CachyOS Mai 2024 Release
+title: CachyOS May 2024 Release
 excerpt: Bcachefs, Deckify, AI-SDK
 category: release
 tags:
