@@ -21,13 +21,13 @@ async function handleDirectButton(edition_name: string) {
   }).catch((e) => null);
 }
 
-export default function DropdownMenu({ data }: Readonly<Props>) {
+const DropdownMenu = ({ data }: Readonly<Props>) => {
   const [show, setShow] = useState(false);
   return (
     <div className="relative inline-block text-left">
       <div>
         <button
-          className="btn dropdown-toggle py-4 px-6 inline-flex w-full justify-center gap-x-1.5 rounded-md text-sm font-semibold text-gray-900"
+          className="btn dropdown-toggle py-4 px-6"
           onClick={() => setShow(!show)}
           onBlur={() => setShow(false)}
         >
@@ -55,7 +55,7 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
       >
         <div
           id="editions-menu-list"
-          className="absolute left-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white dark:bg-gray-800"
+          className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
           role="menu"
           tabIndex={-1}
         >
@@ -63,7 +63,7 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
             <a
               key={data.direct_url}
               href={data.direct_url}
-              className="btn-dropdown-item block w-full"
+              className="btn-dropdown-item block"
               tabIndex={-1}
               role="menuitem"
               onClick={async () => await handleDirectButton(data.title)}
@@ -74,7 +74,7 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
               <a
                 key={data.srcforge_url}
                 href={data.srcforge_url}
-                className="btn-dropdown-item block w-full"
+                className="btn-dropdown-item block"
                 tabIndex={-1}
                 role="menuitem"
               >
@@ -84,7 +84,7 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
             <a
               key={data.direct_url + '.sha256'}
               href={data.direct_url + '.sha256'}
-              className="btn-dropdown-item block w-full"
+              className="btn-dropdown-item block"
               tabIndex={-1}
               role="menuitem"
             >
@@ -93,7 +93,7 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
             <a
               key={data.direct_url + '.sig'}
               href={data.direct_url + '.sig'}
-              className="btn-dropdown-item block w-full"
+              className="btn-dropdown-item block"
               tabIndex={-1}
               role="menuitem"
             >
@@ -104,4 +104,6 @@ export default function DropdownMenu({ data }: Readonly<Props>) {
       </Transition>
     </div>
   );
-}
+};
+
+export default DropdownMenu;
