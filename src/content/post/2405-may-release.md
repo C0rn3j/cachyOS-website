@@ -8,7 +8,7 @@ tags:
 
 Hello CachyOS Enthusiasts,
 
-This is our 6th release and we are really excited to announce our newly added features.
+This is our 6th release this year and we are really excited to announce our newly added features.
 We are now introducing the Bcachefs file system in our installer. This can be used with on a root installation and has been tested quite well.
 Bcachefs is currently still in an experimental state but will improve lot with the next major kernel releases. The installer automatically detects which file system is installed and will correctly configure and install the required packages.
 
