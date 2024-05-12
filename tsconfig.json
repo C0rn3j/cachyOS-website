@@ -7,6 +7,6 @@
     "paths": {
       "~/*": ["src/*"]
     },
-    "jsxImportSource": "react"
+    "jsxImportSource": "preact"
   }
 }

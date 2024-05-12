@@ -1,5 +1,5 @@
-import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
+import { Fragment } from 'preact/compat';
 import type { SupportOption } from '~/types';
 import { useCopyToClipboard } from '~/utils/hooks';
 
@@ -114,8 +114,9 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
 const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
+      {/* @ts-expect-error broken types due to preact/compat and @headlessui/react targets only react */}
       <Dialog as="div" className="relative z-10" onClose={onClose}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -125,11 +126,11 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-black/25" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-1 md:p-4 text-center">
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 scale-95"
@@ -138,7 +139,7 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-dark p-4 text-left align-middle shadow-xl transition-all">
+              <DialogPanel className="w-full max-w-lg transform overflow-hidden rounded-2xl bg-dark p-4 text-left align-middle shadow-xl transition-all">
                 <div className="absolute right-0 top-0 pr-3 pt-3">
                   <button
                     aria-label="Close"
@@ -159,16 +160,17 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                     </svg>
                   </button>
                 </div>
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-white text-center">
+                {/* @ts-expect-error broken types due to preact/compat and @headlessui/react targets only react */}
+                <DialogTitle as="h3" className="text-lg font-medium leading-6 text-white text-center">
                   Support Options
-                </Dialog.Title>
+                </DialogTitle>
                 <div className="mt-2 space-y-2">
                   {supportOptions.map((x) => (
                     <SupportRow key={x.label} label={x.label} text={x.text} mode={x.mode} />
                   ))}
                 </div>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>

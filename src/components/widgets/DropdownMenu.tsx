@@ -1,5 +1,5 @@
-import { Menu, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Transition } from '@headlessui/react';
+import { Fragment, useState } from 'preact/compat';
 
 interface Props {
   data: {
@@ -11,20 +11,7 @@ interface Props {
 
 const DOWNLOADS_API_ENDPOINT = 'https://iso-stats.cachyos.org/api/download';
 
-async function getCountOfDownload(download_name: string) {
-  // Load data with fetch().
-  const allFilteredDownloads = await fetch(`${DOWNLOADS_API_ENDPOINT}/${download_name}`).then((response) =>
-    response.json()
-  );
-  console.log(allFilteredDownloads);
-
-  // Return a amount of downloads for specific ISO edition.
-  return allFilteredDownloads.length;
-}
-
 async function handleDirectButton(edition_name: string) {
-  //const downloadCount = await getCountOfDownload(data_id);
-
   fetch(DOWNLOADS_API_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -34,17 +21,17 @@ async function handleDirectButton(edition_name: string) {
   }).catch((e) => null);
 }
 
-const DropdownMenu = ({ data }: Props) => {
+export default function DropdownMenu({ data }: Readonly<Props>) {
+  const [show, setShow] = useState(false);
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <div className="relative inline-block text-left">
       <div>
-        <Menu.Button
-          className="btn dropdown-toggle py-4 px-6"
-          aria-label="menu"
-          aria-expanded="true"
-          aria-haspopup="true"
+        <button
+          className="btn dropdown-toggle py-4 px-6 inline-flex w-full justify-center gap-x-1.5 rounded-md text-sm font-semibold text-gray-900"
+          onClick={() => setShow(!show)}
+          onBlur={() => setShow(false)}
         >
-          Download {data.title}
+          Download GUI Installer
           <svg
             className="w-4 h-4 ml-2"
             fill="none"
@@ -54,9 +41,8 @@ const DropdownMenu = ({ data }: Props) => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
           </svg>
-        </Menu.Button>
+        </button>
       </div>
-
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -65,45 +51,57 @@ const DropdownMenu = ({ data }: Props) => {
         leave="transition ease-in duration-75"
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
+        show={show}
       >
-        <Menu.Items
+        <div
           id="editions-menu-list"
-          className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
+          className="absolute left-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white dark:bg-gray-800"
+          role="menu"
+          tabIndex={-1}
         >
-          <Menu.Item
-            as="a"
-            key={data.direct_url}
-            href={data.direct_url}
-            className="btn-dropdown-item block"
-            onClick={async () => await handleDirectButton(data.title)}
-          >
-            Direct
-          </Menu.Item>
-          {data.srcforge_url && (
-            <Menu.Item as="a" key={data.srcforge_url} href={data.srcforge_url} className="btn-dropdown-item block">
-              Sourceforge
-            </Menu.Item>
-          )}
-          <Menu.Item
-            as="a"
-            key={data.direct_url + '.sha256'}
-            href={data.direct_url + '.sha256'}
-            className="btn-dropdown-item block"
-          >
-            Checksum
-          </Menu.Item>
-          <Menu.Item
-            as="a"
-            key={data.direct_url + '.sig'}
-            href={data.direct_url + '.sig'}
-            className="btn-dropdown-item block"
-          >
-            Signature
-          </Menu.Item>
-        </Menu.Items>
+          <div className="py-1" role="none" onClick={() => setShow(false)}>
+            <a
+              key={data.direct_url}
+              href={data.direct_url}
+              className="btn-dropdown-item block w-full"
+              tabIndex={-1}
+              role="menuitem"
+              onClick={async () => await handleDirectButton(data.title)}
+            >
+              Direct
+            </a>
+            {data.srcforge_url ? (
+              <a
+                key={data.srcforge_url}
+                href={data.srcforge_url}
+                className="btn-dropdown-item block w-full"
+                tabIndex={-1}
+                role="menuitem"
+              >
+                Sourceforge
+              </a>
+            ) : null}
+            <a
+              key={data.direct_url + '.sha256'}
+              href={data.direct_url + '.sha256'}
+              className="btn-dropdown-item block w-full"
+              tabIndex={-1}
+              role="menuitem"
+            >
+              Checksum
+            </a>
+            <a
+              key={data.direct_url + '.sig'}
+              href={data.direct_url + '.sig'}
+              className="btn-dropdown-item block w-full"
+              tabIndex={-1}
+              role="menuitem"
+            >
+              Signature
+            </a>
+          </div>
+        </div>
       </Transition>
-    </Menu>
+    </div>
   );
-};
-
-export default DropdownMenu;
+}

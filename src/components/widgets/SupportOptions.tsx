@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'preact/compat';
 import SupportModal from './SupportModal';
 
 interface Props {
