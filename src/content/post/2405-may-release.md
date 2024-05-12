@@ -44,7 +44,7 @@ Here you can find the changelog for this release:
 - CachyOS-Deckify: Provide variant for Handhelds (experimental), see [here](https://discuss.cachyos.org/t/information-experimental-cachyos-deckify/203) for more details
 - BTRFS: Automatic Snapper for snapshots, can be installed from within the CachyOS hello app.
 - ISO: Drop Offline Installer
-- Package Updates: Python 3.12, gcc 14.1.1, mesa 24.0.6, xwayland 24.1rc2 , NVIDIA 550.78
+- Package Updates: Python 3.12, gcc 14.1.1, mesa 24.0.6, xwayland 24.1rc2 , NVIDIA 550.78, zstd 1.5.6
 
 **Bug-Fixes:**
 - settings.conf: Move hardware detection before netinstall
