@@ -34,8 +34,8 @@ export const footerData = {
       ],
     },
     {
-      title: 'Company',
-      links: [{ text: 'About', href: getPermalink('/about#company') }],
+      title: 'Distribution',
+      links: [{ text: 'About', href: getPermalink('/about#distribution') }],
     },
   ],
   secondaryLinks: [
