@@ -61,6 +61,7 @@ const ImprintModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                   <p>Peter Jung</p>
                   <p>Paarstraße 40</p>
                   <p>86453 Dasing</p>
+                  <p>Germany</p>
                   <br />
                   <p>Contact:</p>
                   <p>
