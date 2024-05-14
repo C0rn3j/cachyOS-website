@@ -1,6 +1,6 @@
 ---
 title: CachyOS May 2024 Release
-excerpt: Bcachefs, Deckify, AI-SDK
+excerpt: Bcachefs, Handheld, AI-SDK
 category: release
 tags:
   - release
@@ -15,9 +15,9 @@ Bcachefs is currently still in an experimental state but will improve lot with t
 The next new feature is an AI SDK Installation. This installation type automatically installs all required packages required to have a local AI Installation.
 This was done due to requests from an Local AI Enthusiasts group and will be further enhanced in the future. For now, this install method only works for CUDA and NVIDIA, but we are also working on introducing this for offical ROCm supported cards. ROCm support is planned to be released together with the next release.
 
-Last but not least, we are adding an experimental handheld Edition for CachyOS. The Deckify Edition automatically setups a Steam Deck like experience and installs all required Gaming Tools for it.
+Last but not least, we are adding an experimental handheld Edition for CachyOS. The Handheld Edition automatically setups a Steam Deck like experience and installs all required Gaming Tools for it.
 We are also proud to announce that this version will use the LAVD Scheduler, which is funded by Valve and improves the Frametime and 1% lows on Handhelds dramatically.
-The Deckify Edition is currently tested on the Rog Ally, Lenovo Legion GO and MSI Claw. Steam Deck support is also being currently worked on, but there are some small issues that should be fixed with upcoming releases. For more information check out following: [Deckify information](https://discuss.cachyos.org/t/information-experimental-cachyos-deckify/203)
+The Handheld Edition is currently tested on the Rog Ally, Lenovo Legion GO and MSI Claw. Steam Deck support is also being currently worked on, but there are some small issues that should be fixed with upcoming releases. For more information check out following: [Handheld information](https://discuss.cachyos.org/t/information-experimental-cachyos-handheld-edition/203)
 
 We are also working closely together with the sched-ext development team and currently testing their framework a lot. The Rusty Scheduler has made insane improvements for interactivity and is already used by many users in our community as the default scheduler with systemd services.
 
@@ -41,7 +41,7 @@ Here you can find the changelog for this release:
 - Filesystems: Introduce Bcachefs as a filesystem option
 - pacstrap: Add detection if Bcachefs is used and install corresponding Bcachefs-tools
 - CachyOS-AI-SDK: Introduce new install option to provide a OOB NVIDIA SDK Setup
-- CachyOS-Deckify: Provide variant for Handhelds (experimental), see [here](https://discuss.cachyos.org/t/information-experimental-cachyos-deckify/203) for more details
+- CachyOS-Deckify: Provide variant for Handhelds (experimental), see [here](https://discuss.cachyos.org/t/information-experimental-cachyos-handheld-edition/203) for more details
 - BTRFS: Automatic Snapper for snapshots, can be installed from within the CachyOS hello app.
 - ISO: Drop Offline Installer
 - Package Updates: Python 3.12, gcc 14.1.1, mesa 24.0.6, xwayland 24.1rc2 , NVIDIA 550.78, zstd 1.5.6
