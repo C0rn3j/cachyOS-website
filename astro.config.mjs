@@ -6,7 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 //import compress from 'astro-compress';
 
-import preact from '@astrojs/preact';
+import react from '@astrojs/react';
 import { SITE } from './src/config.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -33,7 +33,7 @@ export default defineConfig({
     js: true,
     svg: false,
      logger: 1,
-  }),*/ preact({ compat: true }),
+  }),*/ react(),
   ],
   vite: {
     resolve: {

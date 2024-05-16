@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react';
-import { Fragment, useState } from 'preact/compat';
+import { Fragment, useState } from 'react';
 
 interface Props {
   data: {

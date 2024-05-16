@@ -1,5 +1,5 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
-import { Fragment } from 'preact/compat';
+import { Fragment } from 'react';
 import type { SupportOption } from '~/types';
 import { useCopyToClipboard } from '~/utils/hooks';
 
@@ -114,7 +114,6 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
 const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: () => void }>) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      {/* @ts-expect-error broken types due to preact/compat and @headlessui/react targets only react */}
       <Dialog as="div" className="relative z-10" onClose={onClose}>
         <TransitionChild
           as={Fragment}
@@ -160,7 +159,6 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                     </svg>
                   </button>
                 </div>
-                {/* @ts-expect-error broken types due to preact/compat and @headlessui/react targets only react */}
                 <DialogTitle as="h3" className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center">
                   Support Options
                 </DialogTitle>
