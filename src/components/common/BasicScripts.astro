@@ -11,7 +11,7 @@ import { SITE } from '~/config.mjs';
     }
   }
 
-  function setThemeMode() {
+  const setThemeMode = () => {
     if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
       applyTheme(defaultTheme.replace(':only', ''));
     } else if (
@@ -22,7 +22,7 @@ import { SITE } from '~/config.mjs';
     } else {
       applyTheme('light');
     }
-  }
+  };
 
   // Runs on initial navigation
   setThemeMode();
@@ -39,12 +39,12 @@ import { SITE } from '~/config.mjs';
     }
   }
 
-  document.addEventListener('astro:page-load', () => {
+  const onLoad = () => {
     // This only runs once.
     let lastKnownScrollPosition = window.scrollY;
     let ticking = true;
 
-    attachEvent('[data-aw-toggle-menu]', 'click', function (_, elem) {
+    attachEvent('[data-aw-toggle-menu]', 'click', (_, elem) => {
       elem.classList.toggle('expanded');
       document.body.classList.toggle('overflow-hidden');
       document.getElementById('header')?.classList.toggle('h-screen');
@@ -52,7 +52,7 @@ import { SITE } from '~/config.mjs';
       document.querySelector('#header nav')?.classList.toggle('hidden');
     });
 
-    attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
+    attachEvent('[data-aw-toggle-color-scheme]', 'click', () => {
       if (defaultTheme.endsWith(':only')) {
         return;
       }
@@ -60,63 +60,33 @@ import { SITE } from '~/config.mjs';
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
 
-    attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
-      const network = elem.getAttribute('data-aw-social-share');
-      const url = encodeURIComponent(elem.getAttribute('data-aw-url'));
-      const text = encodeURIComponent(elem.getAttribute('data-aw-text'));
-
-      let href;
-      switch (network) {
-        case 'facebook':
-          href = `https://www.facebook.com/sharer.php?u=${url}`;
-          break;
-        case 'twitter':
-          href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-          break;
-        case 'linkedin':
-          href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
-          break;
-        case 'whatsapp':
-          href = `https://wa.me/?text=${text}%20${url}`;
-          break;
-        case 'mail':
-          href = `mailto:?subject=%22${text}%22&body=${text}%20${url}`;
-          break;
-
-        default:
-          return;
-      }
-
-      const newlink = document.createElement('a');
-      newlink.target = '_blank';
-      newlink.href = href;
-      newlink.click();
-    });
-
-    function appyHeaderStylesOnScroll() {
+    function applyHeaderStylesOnScroll() {
       const header = document.getElementById('header');
+      if (!header) return;
       if (lastKnownScrollPosition > 60 && !header.classList.contains('scroll')) {
-        document.getElementById('header').classList.add('scroll');
+        header.classList.add('scroll');
       } else if (lastKnownScrollPosition <= 60 && header.classList.contains('scroll')) {
-        document.getElementById('header').classList.remove('scroll');
+        header.classList.remove('scroll');
       }
       ticking = false;
     }
-    appyHeaderStylesOnScroll();
+    applyHeaderStylesOnScroll();
 
-    attachEvent([document], 'scroll', function () {
+    attachEvent([document], 'scroll', () => {
       lastKnownScrollPosition = window.scrollY;
 
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          appyHeaderStylesOnScroll();
+          applyHeaderStylesOnScroll();
         });
         ticking = true;
       }
     });
-  });
+  };
 
-  window.onpageshow = function () {
+  document.addEventListener('astro:page-load', onLoad);
+
+  const onPageShow = () => {
     document.documentElement.classList.add('motion-safe:scroll-smooth');
     const elem = document.querySelector('[data-aw-toggle-menu]');
     if (elem) {
@@ -126,4 +96,5 @@ import { SITE } from '~/config.mjs';
     document.getElementById('header')?.classList.remove('h-screen');
     document.querySelector('#header nav')?.classList.add('hidden');
   };
+  window.onpageshow = onPageShow;
 </script>

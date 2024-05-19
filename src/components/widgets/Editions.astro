@@ -1,6 +1,6 @@
 ---
-//import { Image } from 'astro:assets';
-import Image from '~/components/common/Image.astro';
+import { Image } from 'astro:assets';
+//import Image from '~/components/common/Image.astro';
 import DropdownMenu from '~/components/widgets/DropdownMenu';
 
 import { ISOEdition, ISOSource, generateDownloadLink } from '~/utils/utils';
@@ -19,7 +19,7 @@ const items = [
         'Empower Your Computing with KDE Plasma - Browse the web, stay connected with friends and family, manage files, enjoy multimedia, and work efficiently in a visually stunning environment that adapts to your needs. Experience the added benefits of using the best in Free and Open Source Software with a focus on security, privacy, and peace of mind.',
       direct_url: generateDownloadLink(ISOEdition.Kde, '240512', ISOSource.Direct),
       srcforge_url: generateDownloadLink(ISOEdition.Kde, '240512', ISOSource.Sourceforge),
-      preview: '~/assets/images/kde.png',
+      preview: import('~/assets/images/kde.png'),
     },
   ],
 ];
