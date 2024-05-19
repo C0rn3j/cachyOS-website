@@ -1,5 +1,5 @@
-import { Transition } from '@headlessui/react';
-import { Fragment, useState } from 'react';
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
 interface Props {
   data: {
@@ -21,17 +21,17 @@ async function handleDirectButton(edition_name: string) {
   }).catch((e) => null);
 }
 
-const DropdownMenu = ({ data }: Readonly<Props>) => {
-  const [show, setShow] = useState(false);
+const DropdownMenu = ({ data }: Props) => {
   return (
-    <div className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left">
       <div>
-        <button
+        <MenuButton
           className="btn dropdown-toggle py-4 px-6"
-          onClick={() => setShow(!show)}
-          onBlur={() => setShow(false)}
+          aria-label="menu"
+          aria-expanded="true"
+          aria-haspopup="true"
         >
-          Download GUI Installer
+          Download {data.title}
           <svg
             className="w-4 h-4 ml-2"
             fill="none"
@@ -41,8 +41,9 @@ const DropdownMenu = ({ data }: Readonly<Props>) => {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
           </svg>
-        </button>
+        </MenuButton>
       </div>
+
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
@@ -51,58 +52,44 @@ const DropdownMenu = ({ data }: Readonly<Props>) => {
         leave="transition ease-in duration-75"
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
-        show={show}
       >
-        <div
+        <MenuItems
           id="editions-menu-list"
           className="dropdown-menu min-w-max absolute bg-white dark:bg-gray-800 text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none"
-          role="menu"
-          tabIndex={-1}
         >
-          <div className="py-1" role="none" onClick={() => setShow(false)}>
-            <a
-              key={data.direct_url}
-              href={data.direct_url}
-              className="btn-dropdown-item block"
-              tabIndex={-1}
-              role="menuitem"
-              onClick={async () => await handleDirectButton(data.title)}
-            >
-              Direct
-            </a>
-            {data.srcforge_url ? (
-              <a
-                key={data.srcforge_url}
-                href={data.srcforge_url}
-                className="btn-dropdown-item block"
-                tabIndex={-1}
-                role="menuitem"
-              >
-                Sourceforge
-              </a>
-            ) : null}
-            <a
-              key={data.direct_url + '.sha256'}
-              href={data.direct_url + '.sha256'}
-              className="btn-dropdown-item block"
-              tabIndex={-1}
-              role="menuitem"
-            >
-              Checksum
-            </a>
-            <a
-              key={data.direct_url + '.sig'}
-              href={data.direct_url + '.sig'}
-              className="btn-dropdown-item block"
-              tabIndex={-1}
-              role="menuitem"
-            >
-              Signature
-            </a>
-          </div>
-        </div>
+          <MenuItem
+            as="a"
+            key={data.direct_url}
+            href={data.direct_url}
+            className="btn-dropdown-item block"
+            onClick={async () => await handleDirectButton(data.title)}
+          >
+            Direct
+          </MenuItem>
+          {data.srcforge_url && (
+            <MenuItem as="a" key={data.srcforge_url} href={data.srcforge_url} className="btn-dropdown-item block">
+              Sourceforge
+            </MenuItem>
+          )}
+          <MenuItem
+            as="a"
+            key={data.direct_url + '.sha256'}
+            href={data.direct_url + '.sha256'}
+            className="btn-dropdown-item block"
+          >
+            Checksum
+          </MenuItem>
+          <MenuItem
+            as="a"
+            key={data.direct_url + '.sig'}
+            href={data.direct_url + '.sig'}
+            className="btn-dropdown-item block"
+          >
+            Signature
+          </MenuItem>
+        </MenuItems>
       </Transition>
-    </div>
+    </Menu>
   );
 };
 
