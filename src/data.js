@@ -23,7 +23,7 @@ export const footerData = {
       title: 'Product',
       links: [
         { text: 'Features', href: 'https://wiki.cachyos.org/en/home/features' },
-        { text: 'Team', href: getPermalink('/about#team') },
+        { text: 'Team', href: getPermalink('/about/#team') },
       ],
     },
     {
@@ -35,7 +35,7 @@ export const footerData = {
     },
     {
       title: 'Distribution',
-      links: [{ text: 'About', href: getPermalink('/about#distribution') }],
+      links: [{ text: 'About', href: getPermalink('/about/#distribution') }],
     },
   ],
   secondaryLinks: [
