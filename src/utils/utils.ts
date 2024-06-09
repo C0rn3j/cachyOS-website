@@ -16,20 +16,22 @@ const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en', {
 export const getFormattedDate = (date: Date): string => (date ? formatter.format(date) : '');
 
 export const enum ISOSource {
-  Direct,
-  Sourceforge,
+  DIRECT,
+  SOURCEFORGE,
 }
 export const enum ISOEdition {
-  Kde = 'kde',
-  Gnome = 'gnome',
+  KDE = 'kde',
+  GNOME = 'gnome',
+  HANDHELD = 'handheld',
 }
 
 const direct_base_link = 'https://iso.cachyos.org';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
 
 export const generateDownloadLink = (edition: ISOEdition, release: string, source: ISOSource): string => {
-  const base_link = source === ISOSource.Direct ? direct_base_link : sourceforge_base_link;
+  const base_link = source === ISOSource.DIRECT ? direct_base_link : sourceforge_base_link;
   const release_link = `${release}/cachyos-${edition}-linux-${release}.iso`;
-  const res_link = source === ISOSource.Direct ? `${base_link}/${release_link}` : `${base_link}/${edition}/${release_link}`;
-  return source === ISOSource.Direct ? res_link : `${res_link}/download`;
+  const res_link =
+    source === ISOSource.DIRECT ? `${base_link}/${release_link}` : `${base_link}/${edition}/${release_link}`;
+  return source === ISOSource.DIRECT ? res_link : `${res_link}/download`;
 };

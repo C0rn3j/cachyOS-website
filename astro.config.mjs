@@ -4,7 +4,6 @@ import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 import path from 'path';
 import { fileURLToPath } from 'url';
-//import compress from 'astro-compress';
 
 import react from '@astrojs/react';
 import { SITE } from './src/config.mjs';
@@ -24,16 +23,7 @@ export default defineConfig({
     }),
     sitemap(),
     icon(),
-    /*compress({
-    css: true,
-    html: {
-      removeAttributeQuotes: false,
-    },
-    img: false,
-    js: true,
-    svg: false,
-     logger: 1,
-  }),*/ react(),
+    react(),
   ],
   vite: {
     resolve: {
