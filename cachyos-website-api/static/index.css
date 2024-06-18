@@ -1,0 +1,30 @@
+#chart-container {
+  margin: auto;
+  width: 70%;
+}
+.dark {
+  background-color: #282828;
+  color: #fbf1c7;
+}
+.light {
+  background-color: #fbf1c7;
+  color: #282828;
+}
+#theme-toggle:hover {
+  background-color: #ebdbb2;
+  color: #282828;
+}
+#theme-toggle {
+  transition:
+    background 0.25s,
+    border-color 0.25s;
+  background-color: #fbf1c7;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #282828;
+  text-decoration: none !important;
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  margin: 0 8px 8px 0;
+}

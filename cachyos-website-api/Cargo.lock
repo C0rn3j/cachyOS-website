@@ -317,6 +317,7 @@ dependencies = [
  "dotenvy",
  "env_logger",
  "log",
+ "mime",
  "serde",
  "serde_json",
  "uuid",

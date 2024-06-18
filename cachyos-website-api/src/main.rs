@@ -3,7 +3,6 @@ use actix_web::{get, http, middleware, post, web, App, Error, HttpResponse, Http
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
 use std::env;
-
 use cachyos_website_api::*;
 
 type DbPool = r2d2::Pool<ConnectionManager<SqliteConnection>>;
@@ -94,7 +93,19 @@ async fn get_last_update_msg(pool: web::Data<DbPool>) -> Result<HttpResponse, Er
 async fn get_index_page() -> Result<HttpResponse> {
     Ok(HttpResponse::Ok()
         .content_type(http::header::ContentType::html())
-        .body(include_str!("../index.html")))
+        .body(include_str!("../static/index.html")))
+}
+#[get("/index.js")]
+async fn get_index_js() -> Result<HttpResponse> {
+    Ok(HttpResponse::Ok()
+        .content_type(http::header::ContentType(mime::APPLICATION_JAVASCRIPT_UTF_8))
+        .body(include_str!("../static/index.js")))
+}
+#[get("/index.css")]
+async fn get_index_css() -> Result<HttpResponse> {
+    Ok(HttpResponse::Ok()
+        .content_type(http::header::ContentType(mime::TEXT_CSS_UTF_8))
+        .body(include_str!("../static/index.css")))
 }
 
 #[actix_web::main]
@@ -129,6 +140,8 @@ async fn main() -> std::io::Result<()> {
             .wrap(cors)
             .wrap(middleware::Logger::default())
             .service(get_index_page)
+            .service(get_index_js)
+            .service(get_index_css)
             .service(
                 web::scope("/api")
                 .service(get_downloads)
