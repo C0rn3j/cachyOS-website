@@ -157,10 +157,18 @@ const updateChartData = (timePeriod, data, overallDownloads, chart) => {
     const itemTime = new Date(item.timestamp).getTime();
     return itemTime >= startTime && itemTime <= currentTime;
   });
+  const filteredDataDesktop = desktopEdition.filter((item) => {
+    const itemTime = new Date(item.timestamp).getTime();
+    return itemTime >= startTime && itemTime <= currentTime;
+  });
+  const filteredDataHandheld = handheldEdition.filter((item) => {
+    const itemTime = new Date(item.timestamp).getTime();
+    return itemTime >= startTime && itemTime <= currentTime;
+  });
   const preparedCountsKde = getPreparedCounts(filteredDataKde);
   const preparedCountsGnome = getPreparedCounts(filteredDataGnome);
-  const preparedCountsDesktop = getPreparedCounts(desktopEdition);
-  const preparedCountsHandheld = getPreparedCounts(handheldEdition);
+  const preparedCountsDesktop = getPreparedCounts(filteredDataDesktop);
+  const preparedCountsHandheld = getPreparedCounts(filteredDataHandheld);
 
   const labels = getPreparedCounts(filteredData).labels;
   const sum1 = preparedCountsKde.values.reduce((partialSum, x) => partialSum + x, 0);
