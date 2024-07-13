@@ -20,9 +20,10 @@ export const enum ISOSource {
   SOURCEFORGE,
 }
 export const enum ISOEdition {
-  KDE = 'kde',
+  DESKTOP = 'desktop',
   GNOME = 'gnome',
   HANDHELD = 'handheld',
+  KDE = 'kde',
 }
 
 const direct_base_link = 'https://iso.cachyos.org';
@@ -30,8 +31,8 @@ const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/fil
 
 export const generateDownloadLink = (edition: ISOEdition, release: string, source: ISOSource): string => {
   const base_link = source === ISOSource.DIRECT ? direct_base_link : sourceforge_base_link;
-  const release_link = `${release}/cachyos-${edition}-linux-${release}.iso`;
+  const release_link = `${edition}/${release}/cachyos-${edition}-linux-${release}.iso`;
   const res_link =
-    source === ISOSource.DIRECT ? `${base_link}/${release_link}` : `${base_link}/${edition}/${release_link}`;
+    source === ISOSource.DIRECT ? `${base_link}/${release_link}` : `${base_link}/${release_link}`;
   return source === ISOSource.DIRECT ? res_link : `${res_link}/download`;
 };
