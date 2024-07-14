@@ -25,7 +25,7 @@ const generatePermalink = async ({
 
   const permalink = POST_PERMALINK_PATTERN.replace('%slug%', slug)
     .replace('%id%', id)
-    .replace('%category%', category || '')
+    .replace('%category%', category ?? '')
     .replace('%year%', year)
     .replace('%month%', month)
     .replace('%day%', day)
@@ -149,7 +149,7 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 
 /** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
-  const _count = count || 4;
+  const _count = count ?? 4;
   const posts = await fetchPosts();
 
   return posts ? posts.slice(0, _count) : [];
