@@ -84,9 +84,9 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 
 * CDN: https://iso.cachyos.org/desktop/240714/cachyos-desktop-linux-240714.iso
 * Germany: https://mirror.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
-* USA: https://us.cachyos.org/ISO/240714/desktop/cachyos-desktop-linux-240714.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240714/cachyos-desktop-linux-240714.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+* USA: https://us.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
+* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
+* Sourceforge: https://sourceforge.net/projects/cachyos-arch/files
 
 Handheld Edition:
 
