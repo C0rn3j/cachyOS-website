@@ -77,19 +77,21 @@ For users, which have a NVIDIA Card, which supports the Open Module (20xx or hig
 
 **Download:**
 
+**Desktop Edition:**
+
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/240817/cachyos-desktop-linux-240817.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/240817/cachyos-desktop-linux-240817.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/240817/cachyos-desktop-linux-240817.iso
-* USA: https://us.cachyos.org/ISO/240817/desktop/cachyos-desktop-linux-240817.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240817/cachyos-desktop-linux-240817.iso
+* CDN: https://iso.cachyos.org/desktop/240818/cachyos-desktop-linux-240818.iso
+* CDN2: https://cdn77.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
+* Germany: https://mirror.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
+* USA: https://us.cachyos.org/ISO/240818/desktop/cachyos-desktop-linux-240818.iso
+* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240818/cachyos-desktop-linux-240818.iso
 * https://sourceforge.net/projects/cachyos-arch/files
 
-Handheld Edition:
+**Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/240817/cachyos-handheld-linux-240817.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/240817/cachyos-handheld-linux-240817.iso
+* CDN: https://iso.cachyos.org/handheld/240818/cachyos-handheld-linux-240818.iso
+* CDN2: https://cdn77.cachyos.org/ISO/handheld/240818/cachyos-handheld-linux-240818.iso
 
 **Support Us:**
 
