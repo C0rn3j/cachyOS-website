@@ -2,7 +2,14 @@ import { getCollection } from 'astro:content';
 import type { PaginateFunction } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
-import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
+import {
+  cleanSlug,
+  trimSlash,
+  BLOG_BASE,
+  POST_PERMALINK_PATTERN,
+  CATEGORY_BASE,
+  TAG_BASE,
+} from './permalinks';
 import { getCreatedDate, getLastUpdated } from './post';
 
 const generatePermalink = async ({
@@ -90,7 +97,9 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
 const load = async function (): Promise<Array<Post>> {
   const posts = await getCollection('post');
-  const normalizedPosts = posts.map(async (post: CollectionEntry<'post'>) => await getNormalizedPost(post));
+  const normalizedPosts = posts.map(
+    async (post: CollectionEntry<'post'>) => await getNormalizedPost(post)
+  );
 
   const results = (await Promise.all(normalizedPosts))
     .sort((a, b) => b.publishDate.valueOf() - a.publishDate.valueOf())
@@ -187,7 +196,10 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
 
   return Array.from(categories).flatMap((category: string) =>
     paginate(
-      posts.filter((post: Post) => typeof post.category === 'string' && category === post.category.toLowerCase()),
+      posts.filter(
+        (post: Post) =>
+          typeof post.category === 'string' && category === post.category.toLowerCase()
+      ),
       {
         params: { category: category, blog: CATEGORY_BASE || undefined },
         pageSize: blogPostsPerPage,
@@ -210,7 +222,8 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
   return Array.from(tags).flatMap((tag: string) =>
     paginate(
       posts.filter(
-        (post: Post) => Array.isArray(post.tags) && post.tags.find((elem: string) => elem.toLowerCase() === tag)
+        (post: Post) =>
+          Array.isArray(post.tags) && post.tags.find((elem: string) => elem.toLowerCase() === tag)
       ),
       {
         params: { tag: tag, blog: TAG_BASE || undefined },

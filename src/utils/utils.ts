@@ -29,7 +29,11 @@ export const enum ISOEdition {
 const direct_base_link = 'https://iso.cachyos.org';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
 
-export const generateDownloadLink = (edition: ISOEdition, release: string, source: ISOSource): string => {
+export const generateDownloadLink = (
+  edition: ISOEdition,
+  release: string,
+  source: ISOSource
+): string => {
   const base_link = source === ISOSource.DIRECT ? direct_base_link : sourceforge_base_link;
   const release_link = `${base_link}/${edition}/${release}/cachyos-${edition}-linux-${release}.iso`;
   return source === ISOSource.DIRECT ? release_link : `${release_link}/download`;

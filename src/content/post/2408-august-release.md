@@ -38,6 +38,7 @@ KWin's libei is now used for Wayland Input Emulation instead of libextest. Fixes
 **Changelog for this Release:**
 
 **Features:**
+
 - chwd: NVIDIA now uses the open module as default for supported cards
 - Desktop: Added Cosmic Desktop Environment to the installation options
 - NVIDIA: Latest 560 Beta driver is now the default; egl-wayland patched to fix crashes in Firefox and other applications
@@ -52,6 +53,7 @@ KWin's libei is now used for Wayland Input Emulation instead of libextest. Fixes
 - Package Updates: linux-cachyos 6.10.5, mesa 24.2.0, Plasma 6.1.4, NVIDIA 560.31.02
 
 **Bug Fixes:**
+
 - chwd: Improved PRIME profile detection based on device name
 - chwd: Removed RTD3 workaround due to issues on some setups
 - cachyos-rate-mirrors: Disabled mirror ranking when running on Live ISO
@@ -63,6 +65,7 @@ KWin's libei is now used for Wayland Input Emulation instead of libextest. Fixes
 - game-performance: Prevented failure when profile is unavailable
 
 **Changelog for Handheld Edition:**
+
 - device support: Added support for Ally X, thanks to Luke Jones
 - libei: Implemented support for libei, replacing libextest
 - packagekit: Blocked packagekit installation to prevent issues with system updates via Discover
@@ -81,24 +84,24 @@ For users, which have a NVIDIA Card, which supports the Open Module (20xx or hig
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/240818/cachyos-desktop-linux-240818.iso
-* CDN2: https://cdn77.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
-* USA: https://us.cachyos.org/ISO/240818/desktop/cachyos-desktop-linux-240818.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240818/cachyos-desktop-linux-240818.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/240818/cachyos-desktop-linux-240818.iso
+- CDN2: https://cdn77.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/240818/cachyos-desktop-linux-240818.iso
+- USA: https://us.cachyos.org/ISO/240818/desktop/cachyos-desktop-linux-240818.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240818/cachyos-desktop-linux-240818.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Handheld Edition:**
 
-* CDN: https://iso.cachyos.org/handheld/240818/cachyos-handheld-linux-240818.iso
-* CDN2: https://cdn77.cachyos.org/ISO/handheld/240818/cachyos-handheld-linux-240818.iso
+- CDN: https://iso.cachyos.org/handheld/240818/cachyos-handheld-linux-240818.iso
+- CDN2: https://cdn77.cachyos.org/ISO/handheld/240818/cachyos-handheld-linux-240818.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

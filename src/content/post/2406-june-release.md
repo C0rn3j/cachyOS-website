@@ -40,6 +40,7 @@ Feel free to check out the new Wiki: https://wiki.cachyos.org/installation/insta
 **Changelog for This Release:**
 
 **Features:**
+
 - chwd: Introduce handheld hardware detection
 - chwd: Introduce T2 MacBook support
 - chwd: Add network driver detection
@@ -53,6 +54,7 @@ Feel free to check out the new Wiki: https://wiki.cachyos.org/installation/insta
 - Package Updates: linux-cachyos 6.9.3, mesa 24.1.1, xwayland 24.1, NVIDIA 555.52.04, Plasma 6.0.5
 
 **Bug Fixes:**
+
 - Calamares: umount: Enable emergency again
 - Qtile: Multimedia Controls are now working correctly
 - NVIDIA: Enable required services and options for working sleep on Wayland
@@ -62,6 +64,7 @@ Feel free to check out the new Wiki: https://wiki.cachyos.org/installation/insta
 - Calamares: Shellprocess: Move mirror ranking before installing keyring
 
 **Changelog from Experimental Handheld Release:**
+
 - Default to KDE Vapor Theme (SteamOS Theme)
 - Default file system: BTRFS
 - Default kernel: linux-cachyos-deckify
@@ -81,20 +84,19 @@ Feel free to check out the new Wiki: https://wiki.cachyos.org/installation/insta
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* https://iso.cachyos.org/240609/cachyos-kde-linux-240609.iso
-* https://sourceforge.net/projects/cachyos-arch/files
+- https://iso.cachyos.org/240609/cachyos-kde-linux-240609.iso
+- https://sourceforge.net/projects/cachyos-arch/files
 
 Handheld Edition:
 
-* https://iso.cachyos.org/240609-handheld/cachyos-handheld-linux-240609.iso
-
+- https://iso.cachyos.org/240609-handheld/cachyos-handheld-linux-240609.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

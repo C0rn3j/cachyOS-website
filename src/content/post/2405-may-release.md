@@ -34,10 +34,10 @@ This archive can be used to downgrade the kernels or other customized packages p
 We have introduced a new Forum, feel free to check it out!
 https://discuss.cachyos.org
 
-
 Here you can find the changelog for this release:
 
 **Features:**
+
 - Filesystems: Introduce Bcachefs as a filesystem option
 - pacstrap: Add detection if Bcachefs is used and install corresponding Bcachefs-tools
 - CachyOS-AI-SDK: Introduce new install option to provide a OOB NVIDIA SDK Setup
@@ -47,6 +47,7 @@ Here you can find the changelog for this release:
 - Package Updates: Python 3.12, gcc 14.1.1, mesa 24.0.6, xwayland 24.1rc2 , NVIDIA 550.78, zstd 1.5.6
 
 **Bug-Fixes:**
+
 - settings.conf: Move hardware detection before netinstall
 - pacstrap: Use btrfs-assistant instead of btrfs-assistant-git
 - plymouth: remove plymouth hook on zfs + encryption
@@ -59,15 +60,15 @@ Here you can find the changelog for this release:
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* https://mirror.cachyos.org/ISO/
-* https://sourceforge.net/projects/cachyos-arch/files
+- https://mirror.cachyos.org/ISO/
+- https://sourceforge.net/projects/cachyos-arch/files
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 

@@ -49,7 +49,10 @@ const items = [
                 </p>
                 <div class="mb-11 md:inline-block rounded-xl shadow-4xl bg-primary-500 dark:bg-primary-700 dropdown">
                   {direct_url && (
-                    <DropdownMenu client:load data={{ title, direct_url, srcforge_url } as DropdownMenuProps} />
+                    <DropdownMenu
+                      client:load
+                      data={{ title, direct_url, srcforge_url } as DropdownMenuProps}
+                    />
                   )}
                   {!direct_url && !srcforge_url && (
                     <div>

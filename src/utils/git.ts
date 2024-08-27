@@ -35,7 +35,9 @@ export function getFileCommitDate(
       encoding: 'utf-8',
     });
     if (!stdout) {
-      throw new GitNotFoundError(`Failed to retrieve git history for "${file}" because git is not installed.`);
+      throw new GitNotFoundError(
+        `Failed to retrieve git history for "${file}" because git is not installed.`
+      );
     }
     git_path = stdout.replace(/\n$/, '');
   }

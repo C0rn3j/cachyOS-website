@@ -39,7 +39,12 @@ const DropdownMenu = ({ data }: Props) => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            ></path>
           </svg>
         </MenuButton>
       </div>
@@ -67,7 +72,12 @@ const DropdownMenu = ({ data }: Props) => {
             Direct
           </MenuItem>
           {data.srcforge_url && (
-            <MenuItem as="a" key={data.srcforge_url} href={data.srcforge_url} className="btn-dropdown-item block">
+            <MenuItem
+              as="a"
+              key={data.srcforge_url}
+              href={data.srcforge_url}
+              className="btn-dropdown-item block"
+            >
               Sourceforge
             </MenuItem>
           )}

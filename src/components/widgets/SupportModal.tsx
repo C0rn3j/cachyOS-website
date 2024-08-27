@@ -97,9 +97,17 @@ const SupportRow = ({ label, text, mode }: Readonly<SupportOption>) => {
       </a>
       <div className="p-2 text-wrap overflow-x-scroll w-full no-scrollbar">
         {label}:{' '}
-        <span className="data-[mode=link]:decoration-dotted data-[mode=link]:underline" data-mode={mode}>
+        <span
+          className="data-[mode=link]:decoration-dotted data-[mode=link]:underline"
+          data-mode={mode}
+        >
           {mode === 'link' ? (
-            <a href={text} target="_blank" rel="noopener" className="dark:text-white font-bold decoration-slate-400">
+            <a
+              href={text}
+              target="_blank"
+              rel="noopener"
+              className="dark:text-white font-bold decoration-slate-400"
+            >
               {text}
             </a>
           ) : (
@@ -159,7 +167,10 @@ const SupportModal = ({ isOpen, onClose }: Readonly<{ isOpen: boolean; onClose: 
                     </svg>
                   </button>
                 </div>
-                <DialogTitle as="h3" className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center">
+                <DialogTitle
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900 dark:text-slate-200 text-center"
+                >
                   Support Options
                 </DialogTitle>
                 <div className="mt-2 space-y-2">

@@ -12,7 +12,10 @@ import { SITE } from '~/config.mjs';
   }
 
   const setThemeMode = () => {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
+    if (
+      (defaultTheme && defaultTheme.endsWith(':only')) ||
+      (!localStorage.theme && defaultTheme !== 'system')
+    ) {
       applyTheme(defaultTheme.replace(':only', ''));
     } else if (
       localStorage.theme === 'dark' ||

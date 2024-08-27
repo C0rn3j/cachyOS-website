@@ -19,7 +19,9 @@ const { meta = {} } = Astro.props;
     <MetaTags {...meta} />
   </head>
 
-  <body class="antialiased text-gray-900 dark:text-slate-200 tracking-tight bg-white dark:bg-slate-900">
+  <body
+    class="antialiased text-gray-900 dark:text-slate-200 tracking-tight bg-white dark:bg-slate-900"
+  >
     <slot />
     <BasicScripts />
     <style is:global>

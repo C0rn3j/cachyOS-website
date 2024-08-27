@@ -38,6 +38,7 @@ We have also started working on our own installer framework and a GUI installer.
 **Changelog for this Release:**
 
 **Features:**
+
 - Repository: Introduce Zen 4 optimized repository, this will be used for Zen4 and Zen5 CPU's
 - ISO: Add automatic architecture check for Zen4/Zen5 repository
 - chwd: Added GC support for AMD GPU's, this helps for detecting official ROCm supported GPUs
@@ -55,6 +56,7 @@ We have also started working on our own installer framework and a GUI installer.
 - Package Updates: linux-cachyos 6.9.9, mesa 24.1.3, NVIDIA 555.58.02, Plasma 6.1.2, LLVM 18.1.8
 
 **Bug Fixes:**
+
 - ISO: Set copytoram to auto instead of yes
 - ISO: Fixed Sleep on Live ISO for Laptops
 - Launch Installer: Install the latest archlinux-keyring, before the installation starts to avoid issues, when fetching the archlinux-keyring in the chroot
@@ -64,6 +66,7 @@ We have also started working on our own installer framework and a GUI installer.
 - Calamares: Do not use "Preservefiles" module, since user a reporting issues with it.
 
 **Changelog for Handheld Edition:**
+
 - Added configuration file to apply different scaling, '/home/$USER/.config/deckscale
 - Make GameMode switching more robust
 - Updated Wifi/Bluetooth Firmware for Steam Deck
@@ -82,22 +85,22 @@ https://discuss.cachyos.org/t/zen-4-5-optimized-repository-testing/713?u=ptr1337
 
 Grab your copy of the latest ISO from our mirrors on SourceForge:
 
-* CDN: https://iso.cachyos.org/desktop/240714/cachyos-desktop-linux-240714.iso
-* Germany: https://mirror.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
-* USA: https://us.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
-* China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
-* Sourceforge: https://sourceforge.net/projects/cachyos-arch/files
+- CDN: https://iso.cachyos.org/desktop/240714/cachyos-desktop-linux-240714.iso
+- Germany: https://mirror.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
+- USA: https://us.cachyos.org/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
+- China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/ISO/desktop/240714/cachyos-desktop-linux-240714.iso
+- Sourceforge: https://sourceforge.net/projects/cachyos-arch/files
 
 Handheld Edition:
 
-* https://iso.cachyos.org/handheld/240714/cachyos-handheld-linux-240714.iso
+- https://iso.cachyos.org/handheld/240714/cachyos-handheld-linux-240714.iso
 
 **Support Us:**
 
 Your contributions help us maintain our servers. Consider supporting CachyOS through:
 
-* PayPal: https://paypal.me/pttrr
-* Patreon: https://www.patreon.com/CachyOS
+- PayPal: https://paypal.me/pttrr
+- Patreon: https://www.patreon.com/CachyOS
 
 Thank you for your continued support!
 
