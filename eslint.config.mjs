@@ -54,6 +54,13 @@ export default [
     },
   },
   {
-    ignores: ['dist', 'node_modules', '.github', 'types.generated.d.ts', '.astro', 'cachyos-website-api'],
+    ignores: [
+      'dist',
+      'node_modules',
+      '.github',
+      'types.generated.d.ts',
+      '.astro',
+      'cachyos-website-api',
+    ],
   },
 ];
