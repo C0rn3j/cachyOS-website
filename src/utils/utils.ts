@@ -26,7 +26,7 @@ export const enum ISOEdition {
   KDE = 'kde',
 }
 
-const direct_base_link = 'https://iso.cachyos.org';
+const direct_base_link = 'https://cdn77.cachyos.org/ISO';
 const sourceforge_base_link = 'https://sourceforge.net/projects/cachyos-arch/files/gui-installer';
 
 export const generateDownloadLink = (
