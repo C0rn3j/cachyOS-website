@@ -31,6 +31,7 @@ Together with this release the **old ISO** will **not work** anymore, due the ch
 - Repository: The repository is now synced and updated more frequently, meaning there will be even less delay. The sync interval has been decreased from every 3 hours to every hour.
 - Repository: Starting from 27.09.2024, packages compiled with -fpic will automatically enable -fno-semantic-interposition. This can provide a performance improvement for many packages.
 - zlib-ng: Is now used as a replacement for zlib
+- Mirrors: New Mirror in Austria, hosted by Soulharsh007.
 - sddm: On the KDE Installation, sddm will now default to Wayland as the compositor. # Provide Migration changes in release post
 - cachyos-settings: NetworkManager now uses systemd-resolved as the backend, which helps with DNS caching
 - cachyos-settings: Use time.google.com as the timesync server to avoid issues with timesync on some setups
@@ -71,7 +72,7 @@ Grab your copy of the latest ISO from our mirrors on SourceForge:
 * CDN: https://iso.cachyos.org/desktop/240929/cachyos-desktop-linux-240929.iso
 * CDN2: https://cdn77.cachyos.org/ISO/desktop/240929/cachyos-desktop-linux-240929.iso
 * Germany: https://mirror.cachyos.org/ISO/desktop/240929/cachyos-desktop-linux-240929.iso
-* USA: https://us.cachyos.org/ISO/240929/desktop/cachyos-desktop-linux-240929.iso
+* USA: https://us.cachyos.org/ISO/desktop/240929/cachyos-desktop-linux-240929.iso
 * China: https://mirrors.tuna.tsinghua.edu.cn/cachyos/desktop/240929/cachyos-desktop-linux-240929.iso
 * https://sourceforge.net/projects/cachyos-arch/files
 
