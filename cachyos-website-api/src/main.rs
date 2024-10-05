@@ -3,6 +3,7 @@ mod security;
 use crate::security::SecurityHeader;
 
 use actix_cors::Cors;
+use actix_governor::{Governor, GovernorConfigBuilder, GovernorConfig};
 use actix_web::{get, http, middleware, post, web, App, Error, HttpResponse, HttpServer, Result};
 use diesel::prelude::*;
 use diesel::r2d2::{self, ConnectionManager};
@@ -125,6 +126,10 @@ async fn main() -> std::io::Result<()> {
     let manager = ConnectionManager::<SqliteConnection>::new(conn_spec);
     let pool = r2d2::Pool::builder().build(manager).expect("Failed to create pool.");
 
+    // Allows bursts with up to two requests
+    // and replenishes one element after four seconds, based on peer IP.
+    let governor_conf = GovernorConfig::secure();
+
     log::info!("Starting HTTP server at http://{running_address}:{running_port}");
 
     HttpServer::new(move || {
@@ -140,7 +145,11 @@ async fn main() -> std::io::Result<()> {
         App::new()
             // set up DB pool to be used with web::Data<Pool> extractor
             .app_data(web::Data::new(pool.clone()))
+            // Enable security headers middleware
             .wrap(SecurityHeader::default().build())
+            // Enable Governor middleware
+            .wrap(Governor::new(&governor_conf))
+            // Enable CORS middleware
             .wrap(cors)
             .wrap(middleware::Logger::default())
             .service(get_index_page)
