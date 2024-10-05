@@ -93,7 +93,6 @@ pub struct SecurityHeader {
     pub x_frame_options: XFrameOptions,
     pub x_xss_protection: XXSSProtection,
     pub cross_origin_opener_policy: CrossOriginOpenerPolicy,
-    pub content_security_policy: String,
 }
 
 impl Default for SecurityHeader {
@@ -103,7 +102,6 @@ impl Default for SecurityHeader {
             x_frame_options: XFrameOptions::Deny,
             x_xss_protection: XXSSProtection::EnableBlock,
             cross_origin_opener_policy: CrossOriginOpenerPolicy::SameOrigin,
-            content_security_policy: String::from("default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"),
         }
     }
 }
@@ -119,6 +117,5 @@ impl SecurityHeader {
                 "Cross-Origin-Opener-Policy",
                 self.cross_origin_opener_policy.to_string(),
             ))
-            .add(("Content-Security-Policy", self.content_security_policy))
     }
 }
