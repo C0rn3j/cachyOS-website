@@ -128,7 +128,7 @@ async fn main() -> std::io::Result<()> {
 
     // Allows bursts with up to two requests
     // and replenishes one element after four seconds, based on peer IP.
-    let governor_conf = GovernorConfig::secure();
+    //let governor_conf = GovernorConfig::secure();
 
     log::info!("Starting HTTP server at http://{running_address}:{running_port}");
 
@@ -148,7 +148,7 @@ async fn main() -> std::io::Result<()> {
             // Enable security headers middleware
             .wrap(SecurityHeader::default().build())
             // Enable Governor middleware
-            .wrap(Governor::new(&governor_conf))
+            //.wrap(Governor::new(&governor_conf))
             // Enable CORS middleware
             .wrap(cors)
             .wrap(middleware::Logger::default())
