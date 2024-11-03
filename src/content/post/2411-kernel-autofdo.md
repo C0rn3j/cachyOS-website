@@ -13,6 +13,11 @@ This guide demonstrates how to use the `make pacman-pkg` function to create a ke
 
 The `make pacman-pkg` option uses a simplified PKGBUILD to package the kernel, and I had more success with this method. Therefore, we will proceed with this approach.
 
+## Supported CPUs
+
+- AMD: Zen 3 (Only EPYCs with BRS) and Zen4 / Zen5
+- Intel: All CPUs, which are supporting LBR (likely any cpu after haswell)
+
 ## **Cloning and Configuring the Kernel**
 
 In this section, we will clone the Linux kernel and configure it for AutoFDO. Additionally, we will enable ThinLTO for further optimization.
@@ -64,11 +69,19 @@ sudo sh -c "echo 0 > /proc/sys/kernel/perf_event_paranoid"
 ```
 
 Next, run a workload and profile the kernel. Personally, I compiled the CachyOS kernel using its PKGBUILD with the following commands:
+Note: This depends on having "libpfm" into perf compiled. In CachyOS this is provided as default. On archlinux please do following:
+```sh
+paru -S libpf devtools
+pkgctl repo clone --protocol=https linux-tools && cd linux-tools
+rm PKGBUILD && wget https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/refs/heads/master/toolchain/linux-tools/PKGBUILD
+makepkg -s
+sudo pacman -U perf-$pkgver.tar.zst
+```
 
 ```sh
 git clone https://github.com/cachyos/linux-cachyos
 cd linux-cachyos/linux-cachyos
-
+sudo pacman -S perf
 # We use perf record to profile the workload
 
 # AMD:
