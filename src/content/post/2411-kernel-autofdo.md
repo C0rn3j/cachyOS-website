@@ -71,7 +71,7 @@ sudo sh -c "echo 0 > /proc/sys/kernel/perf_event_paranoid"
 Next, run a workload and profile the kernel. Personally, I compiled the CachyOS kernel using its PKGBUILD with the following commands:
 Note: This depends on having "libpfm" into perf compiled. In CachyOS this is provided as default. On archlinux please do following:
 ```sh
-paru -S libpf devtools
+paru -S libpfm devtools
 pkgctl repo clone --protocol=https linux-tools && cd linux-tools
 rm PKGBUILD && wget https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/refs/heads/master/toolchain/linux-tools/PKGBUILD
 makepkg -s
