@@ -98,7 +98,7 @@ When the compilation is done, you will have a file called `kernel.data`. The siz
 First, download the AutoFDO application called `create_llvm_prof` from [here](https://github.com/google/autofdo/releases/tag/v0.30.1). Place it in your current directory and run the following command to convert the profile:
 
 ```sh
-./create_llvm_prof --binary=/usr/lib/modules/6.12.0-rc5-00015-gd89df38260bb/build/vmlinux --profile=/home/ptr1337/projects/kernel/linux-cachyos/linux-cachyos/kernel.data --format=extbinary --out=/home/ptr1337/projects/kernel/linux-cachyos/linux-cachyos/kernel-compilation.prof
+./create_llvm_prof --binary=/usr/lib/modules/6.12.0-rc5-00015-gd89df38260bb/build/vmlinux --profile=/home/ptr1337/projects/kernel/linux-cachyos/linux-cachyos/kernel.data --format=extbinary --out=/home/ptr1337/projects/kernel/linux-cachyos/linux-cachyos/kernel-compilation.afdo
 ```
 
 Replace `--binary` with your specific package version (`pkgver`). You can also check the path via pacman:
@@ -118,7 +118,7 @@ This is the last step before we finally have an optimized kernel with AutoFDO. N
 ```sh
 cd ~/projects/kernel/linux # example of my path
 make clean
-make LLVM=1 LLVM_IAS=1 CLANG_AUTOFDO_PROFILE=/home/ptr1337/Desktop/kernel-compilation.prof pacman-pkg -j"$(nproc)"
+make LLVM=1 LLVM_IAS=1 CLANG_AUTOFDO_PROFILE=/home/ptr1337/Desktop/kernel-compilation.afdo pacman-pkg -j"$(nproc)"
 ```
 
 Replace `CLANG_AUTOFDO_PROFILE` with the path where your converted profile is located (from the previous step). After starting the compilation process, it will generate a package that can be installed following optimization.
